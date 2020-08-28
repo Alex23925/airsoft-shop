@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model MeleeWeapon {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  img String
+  name String
+  price String
+  quantity String
+  attack String
+  accuracy String
+  effect String
+  multiplier String
+  ingo String
+}

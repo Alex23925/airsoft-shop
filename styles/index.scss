@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Ropa+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+
+$font: "Allerta Stencil", sans-serif;
+$font2: "Ropa Sans", sans-serif;
+$font3: "Black Ops One", cursive;
+$radius: 25px;
+$primary: #67ff0b;
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background-color: #205807;
+}
+
+.svg-container {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.txt-container {
+    position: absolute;
+    width: 92%;
+    height: 55%;
+    top: 12%;
+    left: -14%;
+    transform: rotate(8deg);
+    //border: 2px solid white;
+}
+
+.txt {
+    text-align: center;
+    color: $primary;
+    font-family: $font;
+    font-weight: 100;
+}
+
+// Shop Sign text
+
+.shop-name {
+    font-size: 2vw;
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-size: 1vw;
+    font-family: $font2;
+    letter-spacing: 20px;
+}
+
+.chr-fname {
+    font-size: 3.2vw;
+}
+
+.chr-lname {
+    font-size: 5.8vw;
+}
+
+//buttons
+.navbar {
+    position: absolute;
+    //border: 2px solid white;
+    width: 60%;
+    height: 95%;
+    left: 20%;
+}
+
+.btn-container {
+    position: absolute;
+    border-radius: 25px;
+    width: 25%;
+    height: 15%;
+    overflow: hidden;
+}
+
+.btn {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    //border: none;
+}
+
+.btn-container:hover {
+    transform: rotate(1deg);
+}
+
+.btn--styles {
+    border-radius: 25px;
+    background-color: $primary;
+}
+
+.btn-sell--styles {
+    border-radius: $radius;
+    background-color: orange;
+}
+
+.btn:hover {
+    background-color: black;
+    text-shadow: 2px 2px $primary;
+}
+
+.btn-sell--styles:hover {
+    background-color: black;
+    text-shadow: 2px 2px orange;
+}
+
+.btn__innerSq1 {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 90%;
+    bottom: 2%;
+    left: 0.8%;
+    transform: rotate(-3deg);
+    background: lightgray;
+    border-radius: 25px;
+}
+
+.btn__innerSq2 {
+    position: relative;
+    bottom: 0;
+    width: 190%;
+    height: 190%;
+    top: -50%;
+    left: -45%;
+    transform: rotate(-14deg);
+    opacity: 0.7;
+    background-blend-mode: hue;
+    background: white;
+    //                 topL,  topR,   bottomR,  bottomL
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+}
+
+.btn__innerSq2 {
+    animation: move 0.7s linear infinite;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.sell-txt-container-b4 {
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    height: 55%;
+    top: 25%;
+    left: 15%;
+}
+
+.sell-txt-container-b4--styles {
+    color: black;
+    font-family: $font3;
+}
+
+.buy-txt {
+    color: black;
+    text-decoration: none;
+    font-size: calc(34px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    letter-spacing: -1px;
+}
+
+.type-txt {
+    color: black;
+    text-decoration: none;
+    font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-family: $font;
+    letter-spacing: -3px;
+}
+
+.navbar-link {
+    text-decoration: overline;
+}
+
+@keyframes move {
+    //                     topL,  topR,   bottomR,  bottomL
+    0% {
+        clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    }
+
+    10% {
+        clip-path: polygon(25% 22%, 75% 22%, 76% 75%, 26% 75%);
+    }
+
+    20% {
+        clip-path: polygon(25% 21%, 75% 21%, 77% 75%, 27% 75%);
+    }
+
+    30% {
+        clip-path: polygon(25% 22%, 75% 22%, 78% 75%, 28% 73%);
+    }
+
+    40% {
+        clip-path: polygon(25% 23%, 75% 23%, 76% 75%, 29% 72%);
+    }
+
+    // middle
+    50% {
+        clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 30% 71%);
+    }
+
+    60% {
+        clip-path: polygon(26% 25%, 75% 27%, 76% 75%, 29% 72%);
+    }
+
+    70% {
+        clip-path: polygon(27% 23%, 75% 28%, 77% 76%, 28% 73%);
+    }
+
+    80% {
+        clip-path: polygon(25% 24%, 75% 28%, 78% 78%, 27% 75%);
+    }
+
+    90% {
+        clip-path: polygon(22% 25%, 75% 27%, 76% 76%, 26% 75%);
+    }
+
+    100% {
+        clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    }
+}

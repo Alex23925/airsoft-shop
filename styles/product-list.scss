@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Ropa+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+$font: "Allerta Stencil",
+sans-serif;
+$font2: "Fredoka One",
+cursive;
+$font3: "Black Ops One",
+cursive;
+$radius: 25px;
+$primary: #67ff0b;
+$defTop: 15%;
+$defLeft: 5%;
+
+.product-list {
+    position: absolute;
+    width: 57.1%;
+    height: 50%;
+    left: 27.3%;
+    top: 12%;
+}
+
+.product-container {
+    position: absolute;
+    width: 79.1%;
+    height: 15%;
+    left: 8%;
+}
+
+.product {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.product--styles {
+    background-color: $primary;
+}
+
+.product__innerSq0 {
+    position: absolute;
+    bottom: 0;
+    width: 190%;
+    height: 190%;
+    top: -55%;
+    left: -45%;
+    transform: rotate(-4deg);
+    opacity: 0.7;
+    background: black;
+    //                 topL,  topR,   bottomR,  bottomL
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+}
+
+.product__innerSq0 {
+    animation: move 0.7s linear infinite;
+}
+
+.product__innerSq1 {
+    position: absolute;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    background: gray;
+}
+
+.product__innerSq2 {
+    position: absolute;
+    bottom: 0;
+    width: 190%;
+    height: 190%;
+    top: -45%;
+    left: -45%;
+    transform: rotate(-1deg);
+    opacity: 1;
+    background: white;
+    //                 topL,  topR,   bottomR,  bottomL
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    overflow: hidden;
+}
+
+.product__innerSq2 {
+    animation: move 1s linear infinite;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-txt-container {
+    position: absolute;
+    text-align: center;
+    width: 98%;
+    height: 55%;
+    top: 20%;
+    left: 1%;
+}
+
+.product-txt-container--styles {
+    color: black;
+    font-family: $font;
+}
+
+.img-melee {
+    width: 100px;
+    height: 35px;
+    background-color: black;
+    content: url("../img/Equipment/Knives.png");
+}
+
+.name {
+    font-size: 1.8vw;
+    font-family: $font2;
+    margin-right: 25px;
+}
+
+.yen-symbol {
+    font-family: $font;
+    font-size: 1.4vw;
+}
+
+.price {
+    font-size: 2.1vw;
+    font-weight: 200;
+    margin-right: 10px;
+}
+
+.x-symbol {
+    font-family: $font2;
+    font-size: 1vw;
+}
+
+.quantity-container {
+    width: 100px;
+}
+
+.quantity-container-color{
+    background: $primary;
+}
+.quantity {
+    font-size: 2.1vw;
+}
+
+.prod2 {
+    top: 15%;
+    left: 6%;
+}
+
+.prod3 {
+    top: 30%;
+    left: 1%;
+}
+
+.prod4 {
+    top: 45%;
+    left: -3%;
+}
+
+.prod5 {
+    top: 60%;
+    left: -7%;
+}

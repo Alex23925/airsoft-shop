@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import "../styles/reset.scss";
+import "../styles/fillBackground.scss";
+import "../styles/fenceAnimation.scss";
+import "../styles/sign.scss";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({
+  Component,
+  pageProps
+}) {
+  return <Component {
+    ...pageProps
+  }
+  />
 }
 
 export default MyApp

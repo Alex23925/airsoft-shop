@@ -1,0 +1,15 @@
+.page-wrapper {
+    width: 100%;
+}
+
+@media only screen and (max-width: 380px) {
+    .page-wrapper {
+        width: 125%;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

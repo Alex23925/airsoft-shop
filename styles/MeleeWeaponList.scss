@@ -1,0 +1,30 @@
+$primary: #67ff0b;
+
+.list {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 2px black solid;
+    font-size: 5em;
+    color: black;
+}
+
+.btn__back-container {
+    position: absolute;
+    width: 3%;
+    height: 5%;
+    left: 34%;
+    top: 2%;
+    transition: transform 1s;
+}
+
+.btn__back {
+    position: absolute;
+    left: 10%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn__back:hover {
+    transform: scale(0.8);
+}
