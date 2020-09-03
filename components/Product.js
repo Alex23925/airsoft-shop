@@ -30,7 +30,7 @@ export default function Product(props) {
     const showColor = hovering ? "quantity-container-color" : "  ";
 
     return (
-        <div className={"prod" + props.product.id + " product-container"}>
+        <div key={props.product.id} className={"prod" + props.product.id + " product-container"}>
             <div
                 onMouseEnter={hoverHandler}
                 onMouseLeave={hoverHandlerLeave}

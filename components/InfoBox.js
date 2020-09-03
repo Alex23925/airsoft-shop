@@ -1,16 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-
+import "../styles/info-box.scss";
 const EffectDisplay = dynamic(() => import("./effectLogicDisplay"));
 
 export default function InfoBox(props) {
-    const [effect, setEffect] = useState(props.currentEffect);
-    const [hasEffect, setHasEffect] = useState(false);
-
-    if (effect !== "none") {
-        setHasEffect(true);
-    }
-
+    let effect = props.currentEffect;
+    let hasEffect = props.hasEffect;
     return (
         <div className="infoBox-container">
             <div className="infoBox-outer">
@@ -25,7 +20,7 @@ export default function InfoBox(props) {
                         <div className="attack-num">
                             {props.currentStats.attack}
                         </div>
-                        <i class="fas fa-arrow-right"></i>
+                        <i className="fas fa-arrow-right"></i>
                     </div>
                 </div>
             </div>
@@ -40,7 +35,7 @@ export default function InfoBox(props) {
                         <div className="accuracy-num">
                             {props.currentStats.accuracy}
                         </div>
-                        <i class="fas fa-arrow-right"></i>
+                        <i className="fas fa-arrow-right"></i>
                     </div>
                 </div>
             </div>

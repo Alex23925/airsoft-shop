@@ -22,8 +22,9 @@ export default function meleeweaponlist() {
         attack: "000",
         accuracy: "000",
     });
-    const [currentEffect, setCurrentEffect] = useState("");
-    const [currentInfo, setCurrentInfo] = useState("");
+    const [currentEffect, setCurrentEffect] = useState(" ");
+    const [currentInfo, setCurrentInfo] = useState(" ");
+    const [hasEffect, setHasEffect] = useState(false);
     const [isBackHovering, setIsBackHovering] = useState(false);
 
     //functions
@@ -37,11 +38,13 @@ export default function meleeweaponlist() {
         })
     }
 
-    console.log(currentStats);
-
     let setHoverEffect = (effect) => {
-        let eff = effect;
-        setCurrentEffect(eff);
+        if(effect !== "none"){
+            setHasEffect(true);
+        } else {
+            setHasEffect(false);
+        }
+        setCurrentEffect(effect);
     }
 
     let setHoverInfo = (info) => {
@@ -74,6 +77,12 @@ export default function meleeweaponlist() {
                 setHoverStats={setHoverStats}
                 setHoverEffect={setHoverEffect}
                 setHoverInfo={setHoverInfo}
+            />  
+            <InfoBox
+                currentStats={currentStats}
+                hasEffect={hasEffect}
+                currentEffect={currentEffect}
+                currentInfo={currentInfo}
             />  
         </div>
     );
