@@ -19,7 +19,7 @@ const meleeFetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export async function getStaticProps() {
     const meleeweapons = await meleeFetcher(
-        "http://localhost:3000/api/meleeweapons"
+        "https://airsoft-shop.vercel.app/api/meleeweapons"
     );
     return { props: { meleeweapons } };
 }
