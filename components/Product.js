@@ -6,6 +6,7 @@ export default function Product(props) {
     const [hovering, setHovering] = useState(false);
     const nameRef = useRef(null);
 
+
     let hoverHandler =() => {
         let stats = {
             attack: props.product.attack,

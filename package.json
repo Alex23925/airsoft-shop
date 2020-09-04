@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@prisma/cli": "^2.5.1",
     "@prisma/client": "^2.5.1",
     "@zeit/next-sass": "^1.0.1",
@@ -18,7 +22,6 @@
     "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-query": "^2.10.1",
     "sass": "^1.26.10",
     "swr": "^0.3.1"
   },

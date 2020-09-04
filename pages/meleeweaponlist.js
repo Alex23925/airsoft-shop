@@ -1,9 +1,17 @@
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
-import { useQuery, useMutation, queryCache } from "react-query";
+import useSWR from "swr";
+
+import {
+    faArrowAltCircleLeft
+} from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/index.scss";
+import "../styles/melee-weapon-list.scss";
 import "../styles/product-list.scss";
+
+
 const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
@@ -16,6 +24,8 @@ async function fetchMeleeWeaponsRequest() {
     const { meleeweapons } = data;
     return meleeweapons;
 }
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function meleeweaponlist() {
     const [currentStats, setCurrentStats] = useState({
@@ -53,37 +63,41 @@ export default function meleeweaponlist() {
     }
 
     // Data fetching
-   
-    const { status, data, error } = useQuery(
-        "meleeweapons",
-        fetchMeleeWeaponsRequest
+
+    //SWR 
+    const {data, error} = useSWR("/api/meleeweapons", fetcher);
+
+    if (error) return <div>failed to load</div>
+    if (!data) return (
+        <img
+            src="/personaloading.jpg"
+            alt="loading image"
+            className="loading-img"
+        />
     );
-
-    if (status === "loading") {
-        return <span> Loading... </span>;
-    }
-
-    if (status === "error") {
-        return <span> Error: {error.message} </span>;
-    }
-
-    //console.log(data);
 
     return (
         <div className="page-wrapper">
             <BackgroundFilled />
-            <ProductList 
-                minv={data}
+            <ProductList
+                minv={data.meleeweapons}
                 setHoverStats={setHoverStats}
                 setHoverEffect={setHoverEffect}
                 setHoverInfo={setHoverInfo}
-            />  
+            />
+            <div className={"btn__back-container"}>
+                <FontAwesomeIcon
+                    className="fa-3x btn__back"
+                    icon={faArrowAltCircleLeft}
+                    onClick={goBack}
+                />
+            </div>
             <InfoBox
                 currentStats={currentStats}
                 hasEffect={hasEffect}
                 currentEffect={currentEffect}
                 currentInfo={currentInfo}
-            />  
+            />
         </div>
     );
 }

@@ -191,6 +191,10 @@ button:focus {
     text-decoration: overline;
 }
 
+.loading-img {
+    max-width: 100%;
+}
+
 @keyframes move {
     //                     topL,  topR,   bottomR,  bottomL
     0% {
