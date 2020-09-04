@@ -2,32 +2,29 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 
-import {
-    faArrowAltCircleLeft
-} from "@fortawesome/free-regular-svg-icons";
+import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/index.scss";
 import "../styles/melee-weapon-list.scss";
 import "../styles/product-list.scss";
 
-
 const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
 const ProductList = dynamic(() => import("../components/ProductList"));
-const InfoBox = dynamic(() => import("../components/InfoBox"))
+const InfoBox = dynamic(() => import("../components/InfoBox"));
 
-async function fetchMeleeWeaponsRequest() {
-    const response = await fetch("/api/meleeweapons");
-    const data = await response.json();
-    const { meleeweapons } = data;
-    return meleeweapons;
+const meleeFetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export async function getStaticProps() {
+    const meleeweapons = await meleeFetcher(
+        "http://localhost:3000/api/meleeweapons"
+    );
+    return { props: { meleeweapons } };
 }
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
-
-export default function meleeweaponlist() {
+export default function meleeweaponlist(props) {
     const [currentStats, setCurrentStats] = useState({
         attack: "000",
         accuracy: "000",
@@ -45,36 +42,37 @@ export default function meleeweaponlist() {
         setCurrentStats({
             attack: st.attack,
             accuracy: st.accuracy,
-        })
-    }
+        });
+    };
 
     let setHoverEffect = (effect) => {
-        if(effect !== "none"){
+        if (effect !== "none") {
             setHasEffect(true);
         } else {
             setHasEffect(false);
         }
         setCurrentEffect(effect);
-    }
+    };
 
     let setHoverInfo = (info) => {
         let inf = info;
         setCurrentInfo(inf);
-    }
+    };
 
     // Data fetching
 
-    //SWR 
-    const {data, error} = useSWR("/api/meleeweapons", fetcher);
+    //SWR
+    const { data, error } = useSWR("/api/meleeweapons", meleeFetcher, {initialData: props.meleeweapons});
 
-    if (error) return <div>failed to load</div>
-    if (!data) return (
-        <img
-            src="/personaloading.jpg"
-            alt="loading image"
-            className="loading-img"
-        />
-    );
+    if (error) return <div>failed to load</div>;
+    if (!data)
+        return (
+            <img
+                src="/personaloading.jpg"
+                alt="loading image"
+                className="loading-img"
+            />
+        );
 
     return (
         <div className="page-wrapper">
