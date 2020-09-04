@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
-
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
