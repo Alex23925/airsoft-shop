@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import "../styles/index.scss";
 import "../styles/melee-weapon-list.scss";
 import "../styles/product-list.scss";
