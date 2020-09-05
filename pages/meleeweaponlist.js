@@ -33,6 +33,7 @@ export default function meleeweaponlist(props) {
     const [hasEffect, setHasEffect] = useState(false);
     const [isBackHovering, setIsBackHovering] = useState(false);
 
+    console.log(process.env.MY_URL);
     //functions
     let goBack = () => window.history.back();
 
