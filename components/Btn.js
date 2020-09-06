@@ -19,7 +19,9 @@ export default function Btn(props) {
             <div className={props.btn + " btn-container"}>
                 <div
                     onMouseEnter={hoverHandler}
+                    onTouchStart={hoverHandler}
                     onMouseLeave={hoverHandlerLeave}
+                    onTouchEnd={hoverHandlerLeave}
                     className={"btn " + props.btnStyles}
                 >
                     <div className={hide + " btn__innerSq1"}></div>

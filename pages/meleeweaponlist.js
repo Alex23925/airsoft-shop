@@ -7,6 +7,7 @@ import "../styles/index.scss";
 import "../styles/melee-weapon-list.scss";
 import "../styles/product-list.scss";
 
+const Layout = dynamic(() => import("../components/Layout"));
 const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
@@ -31,8 +32,6 @@ export default function meleeweaponlist(props) {
     const [currentInfo, setCurrentInfo] = useState(" ");
     const [hasEffect, setHasEffect] = useState(false);
     const [isBackHovering, setIsBackHovering] = useState(false);
-
-    console.log(process.env.MY_URL);
     //functions
     let goBack = () => window.history.back();
 
@@ -61,7 +60,9 @@ export default function meleeweaponlist(props) {
     // Data fetching
 
     //SWR
-    const { data, error } = useSWR("/api/meleeweapons", meleeFetcher, {initialData: props.meleeweapons});
+    const { data, error } = useSWR("/api/meleeweapons", meleeFetcher, {
+        initialData: props.meleeweapons,
+    });
 
     if (error) return <div>failed to load</div>;
     if (!data)
@@ -74,7 +75,7 @@ export default function meleeweaponlist(props) {
         );
 
     return (
-        <div className="page-wrapper">
+        <Layout>
             <BackgroundFilled />
             <ProductList
                 minv={data.meleeweapons}
@@ -95,6 +96,6 @@ export default function meleeweaponlist(props) {
                 currentEffect={currentEffect}
                 currentInfo={currentInfo}
             />
-        </div>
+        </Layout>
     );
 }
