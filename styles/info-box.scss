@@ -3,19 +3,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
-$font: "Allerta Stencil", sans-serif;
-$font2: "Ropa Sans", sans-serif;
-$font3: "Black Ops One", cursive;
-$font4: "Fredoka One", cursive;
+$font: "Allerta Stencil",
+sans-serif;
+$font2: "Ropa Sans",
+sans-serif;
+$font3: "Black Ops One",
+cursive;
+$font4: "Fredoka One",
+cursive;
 $radius: 25px;
 $primary: #67ff0b;
+@import "./breakpoints.scss";
 
 .infoBox-container {
-    position: absolute;
-    width: 58%;
-    height: 50%;
-    top: 63%;
-    left: 13%;
+    @include media(">=phone") {
+        position: absolute;
+        width: 86%;
+        height: 40%;
+        top: 63%;
+        left: 8%;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        width: 58%;
+        height: 50%;
+        top: 63%;
+        left: 13%;
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        width: 58%;
+        height: 50%;
+        top: 63%;
+        left: 13%;
+    }
 }
 
 .infoBox-outer {
@@ -70,13 +93,35 @@ $primary: #67ff0b;
 }
 
 .attack-txt-container {
-    position: absolute;
-    left: 21%;
-    top: 24%;
-    display: flex;
-    align-items: center;
-    transform: rotate(-3deg);
-    //border: 2px solid red;
+    @include media(">=phone") {
+        position: absolute;
+        left: 21%;
+        top: 40%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        left: 21%;
+        top: 24%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        left: 21%;
+        top: 24%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
 }
 
 .attack-txt {
@@ -84,13 +129,35 @@ $primary: #67ff0b;
 }
 
 .attack-txt--styles {
-    font-size: 1.8vw;
-    font-family: $font;
-    letter-spacing: -0.5vw;
-    font-weight: 800;
-    color: white;
-    text-shadow: 5px 5px 1px black;
-    background-color: black;
+    @include media(">=phone") {
+        font-size: 14px;
+        font-family: $font;
+        letter-spacing: -0.4vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        background-color: black;
+    }
+
+    @include media(">=tablet") {
+        font-size: 1.8vw;
+        font-family: $font;
+        letter-spacing: -0.5vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 5px 5px 1px black;
+        background-color: black;
+    }
+
+    @include media(">=desktop") {
+        font-size: 1.8vw;
+        font-family: $font;
+        letter-spacing: -0.5vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 5px 5px 1px black;
+        background-color: black;
+    }
 }
 
 .attack-nums {
@@ -134,13 +201,35 @@ $primary: #67ff0b;
 }
 
 .accuracy-txt-container {
-    position: absolute;
-    left: 20%;
-    top: 24%;
-    display: flex;
-    align-items: center;
-    transform: rotate(-3deg);
-    //border: 2px solid red;
+    @include media(">=phone") {
+        position: absolute;
+        left: 21%;
+        top: 40%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        left: 21%;
+        top: 24%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        left: 21%;
+        top: 24%;
+        display: flex;
+        align-items: center;
+        transform: rotate(-3deg);
+        //border: 2px solid red;
+    }
 }
 
 .accuracy-txt {
@@ -148,13 +237,35 @@ $primary: #67ff0b;
 }
 
 .accuracy-txt--styles {
-    font-size: 1.8vw;
-    font-family: $font;
-    letter-spacing: -0.5vw;
-    font-weight: 800;
-    color: white;
-    text-shadow: 2px 2px 1px black;
-    background-color: black;
+    @include media(">=phone") {
+        font-size: 14px;
+        font-family: $font;
+        letter-spacing: -0.4vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        background-color: black;
+    }
+
+    @include media(">=tablet") {
+        font-size: 1.8vw;
+        font-family: $font;
+        letter-spacing: -0.5vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 5px 5px 1px black;
+        background-color: black;
+    }
+
+    @include media(">=desktop") {
+        font-size: 1.8vw;
+        font-family: $font;
+        letter-spacing: -0.5vw;
+        font-weight: 800;
+        color: white;
+        text-shadow: 5px 5px 1px black;
+        background-color: black;
+    }
 }
 
 .accuracy-nums {
@@ -162,10 +273,26 @@ $primary: #67ff0b;
 }
 
 .accuracy-nums--styles {
-    font-family: $font;
-    font-weight: 200;
-    font-size: 3.2vw;
-    font-stretch: expanded;
+    @include media(">=phone") {
+        font-family: $font;
+        font-weight: 200;
+        font-size: 32px;
+        font-stretch: expanded;
+    }
+
+     @include media(">=phone") {
+         font-family: $font;
+         font-weight: 200;
+         font-size: 3.2vw;
+         font-stretch: expanded;
+     }
+
+      @include media(">=phone") {
+          font-family: $font;
+          font-weight: 200;
+          font-size: 3.2vw;
+          font-stretch: expanded;
+      }
 }
 
 .fa-arrow-right {
@@ -177,19 +304,55 @@ $primary: #67ff0b;
 }
 
 .effect-info-container {
-    position: absolute;
-    font-family: $font;
-    top: 30%;
-    left: 10%;
-    text-align: center;
-    transform: rotate(-10deg);
+    @include media(">=phone") {
+        position: absolute;
+        font-family: $font;
+        top: 30%;
+        left: 8%;
+        text-align: center;
+        transform: rotate(-10deg);
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        font-family: $font;
+        top: 30%;
+        left: 10%;
+        text-align: center;
+        transform: rotate(-10deg);
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        font-family: $font;
+        top: 30%;
+        left: 10%;
+        text-align: center;
+        transform: rotate(-10deg);
+    }
 }
 
 .effect-txt--styles {
-    background: lighten($color: black, $amount: 10%);
-    color: white;
-    font-size: 3vw;
-    letter-spacing: -0.4vw;
+    @include media(">=phone") {
+        background: lighten($color: black, $amount: 10%);
+        color: white;
+        font-size: 24px;
+        letter-spacing: -0.4vw;
+    }
+
+    @include media(">=tablet") {
+        background: lighten($color: black, $amount: 10%);
+        color: white;
+        font-size: 3vw;
+        letter-spacing: -0.4vw;
+    }
+
+    @include media(">=desktop") {
+        background: lighten($color: black, $amount: 10%);
+        color: white;
+        font-size: 3vw;
+        letter-spacing: -0.4vw;
+    }
 }
 
 .info-txt {
@@ -197,46 +360,128 @@ $primary: #67ff0b;
 }
 
 .info-txt--styles {
-    color: lighten($color: black, $amount: 10%);
-    font-size: 5vw;
-    letter-spacing: -0.5vw;
+    @include media(">=phone") {
+        color: lighten($color: black, $amount: 10%);
+        font-size: 8vw;
+        letter-spacing: -0.5vw;
+    }
+
+    @include media(">=tablet") {
+        color: lighten($color: black, $amount: 10%);
+        font-size: 5vw;
+        letter-spacing: -0.5vw;
+    }
+
+    @include media(">=desktop") {
+        color: lighten($color: black, $amount: 10%);
+        font-size: 5vw;
+        letter-spacing: -0.5vw;
+    }
 }
 
 .effects-container {
-    position: absolute;
-    left: 29%;
-    top: 28%;
+    @include media(">=phone") {
+        position: absolute;
+        left: 32%;
+        top: 28%;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        left: 29%;
+        top: 28%;
+    }
 }
 
 .effects--styles {
-    font-size: 2vw;
-    font-family: $font4;
-    color: lighten($color: black, $amount: 32%);
+    @include media(">=phone") {
+        font-size: 16px;
+        font-family: $font4;
+        color: lighten($color: black, $amount: 32%);
+    }
+
+    @include media(">=desktop") {
+        font-size: 2vw;
+        font-family: $font4;
+        color: lighten($color: black, $amount: 32%);
+    }
 }
 
 .dashes-container {
-    position: absolute;
-    left: 29%;
-    top: 17%;
+    @include media(">=phone") {
+        position: absolute;
+        left: 32%;
+        top: 24%;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        left: 29%;
+        top: 28%;
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        left: 29%;
+        top: 18%;
+    }
 }
 
 .dashes--styles {
-    font-size: 6vw;
-    letter-spacing: 1vw;
-    color: lighten($color: black, $amount: 32%);
+    @include media(">=phone") {
+        font-size: 40px;
+        letter-spacing: 1vw;
+        color: lighten($color: black, $amount: 32%);
+    }
+
+    @include media(">=tablet") {
+        font-size: 6vw;
+        letter-spacing: 1vw;
+        color: lighten($color: black, $amount: 32%);
+    }
 }
 
 .currentInfo-container {
-    position: absolute;
-    top: 40%;
-    left: 29.5%;
-    width: 25vw;
+    @include media(">=phone") {
+        position: absolute;
+        top: 40%;
+        left: 32%;
+        width: 200px;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        top: 40%;
+        left: 29.5%;
+        width: 25vw;
+    }
+
+    @include media(">=desktop") {
+        position: absolute;
+        top: 40%;
+        left: 29.5%;
+        width: 25vw;
+    }
 }
 
 .currentInfo--styles {
-    font-size: 2vw;
-    font-family: $font4;
-    color: lighten($color: black, $amount: 10%);
+    @include media(">=phone") {
+        font-size: 20px;
+        font-family: $font4;
+        color: lighten($color: black, $amount: 10%);
+    }
+
+    @include media(">=tablet") {
+        font-size: 2vw;
+        font-family: $font4;
+        color: lighten($color: black, $amount: 10%);
+    }
+
+    @include media(">=desktop") {
+        font-size: 2vw;
+        font-family: $font4;
+        color: lighten($color: black, $amount: 10%);
+    }
 }
 
 // Arrow-right Animation
