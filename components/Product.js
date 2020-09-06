@@ -34,7 +34,9 @@ export default function Product(props) {
         <div key={props.product.id} className={"prod" + props.product.id + " product-container"}>
             <div
                 onMouseEnter={hoverHandler}
+                onTouchStart={hoverHandler}
                 onMouseLeave={hoverHandlerLeave}
+                onTouchEnd={hoverHandlerLeave}
                 className={"product product--styles"}
             >
                 <div className={hide + " product__innerSq1"}></div>

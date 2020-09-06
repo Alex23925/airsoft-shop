@@ -1,11 +1,12 @@
 import React from "react";
+import "../styles/bg-filled.scss";
 
 function BackgroundFilled() {
     return (
         <div>
-            <div className="background">
-                < div className = "svg-container" >
-                    < div className = "svg" >
+            <div className="filled-background">
+                < div className = "filled-svg-container" >
+                    < div className = "filled-svg" >
                         <svg
                             viewBox="0 0 1920 1080"
                             fill="none"

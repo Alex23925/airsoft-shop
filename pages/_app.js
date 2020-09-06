@@ -1,5 +1,4 @@
 import "../styles/reset.scss";
-import "../styles/fillBackground.scss";
 import "../styles/fenceAnimation.scss";
 import "../styles/sign.scss";
 

@@ -1,0 +1,58 @@
+@import "./breakpoints.scss";
+
+.filled-background {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background-color: #205807;
+
+    @include media("<=tablet") {
+        height: 800px;
+        width: 102%;
+    }
+
+    @include media("<=desktop") {
+        height: 900px;
+    }
+}
+
+.filled-svg-container {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+
+    @include media("<=tablet") {
+        position: relative;
+        padding-bottom: 0px;
+        height: 1200px;
+        overflow: hidden;
+    }
+
+    @include media("<=desktop") {
+        position: relative;
+        padding-bottom: 0px;
+        height: 900px;
+        overflow: hidden;
+    }
+}
+
+.filled-svg {
+    @include media("<=tablet") {
+        position: relative;
+        left: -300px;
+        width: 1400px;
+        overflow: hidden;
+    }
+
+    @include media(">=desktop") {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+}
