@@ -165,10 +165,26 @@ $primary: #67ff0b;
 }
 
 .attack-nums--styles {
-    font-family: $font;
-    font-weight: 200;
-    font-size: 3.2vw;
-    font-stretch: expanded;
+    @include media(">=phone") {
+        font-family: $font;
+        font-weight: 200;
+        font-size: 18px;
+        font-stretch: expanded;
+    }
+
+    @include media(">=tablet") {
+        font-family: $font;
+        font-weight: 200;
+        font-size: 3.2vw;
+        font-stretch: expanded;
+    }
+
+    @include media(">=desktop") {
+        font-family: $font;
+        font-weight: 200;
+        font-size: 3.2vw;
+        font-stretch: expanded;
+    }
 }
 
 //ACCURACY BOX
@@ -276,18 +292,18 @@ $primary: #67ff0b;
     @include media(">=phone") {
         font-family: $font;
         font-weight: 200;
-        font-size: 32px;
+        font-size: 18px;
         font-stretch: expanded;
     }
 
-     @include media(">=phone") {
+     @include media(">=tablet") {
          font-family: $font;
          font-weight: 200;
          font-size: 3.2vw;
          font-stretch: expanded;
      }
 
-      @include media(">=phone") {
+      @include media(">=desktop") {
           font-family: $font;
           font-weight: 200;
           font-size: 3.2vw;

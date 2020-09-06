@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 $primary: #67ff0b;
 
 .list {
@@ -10,12 +12,22 @@ $primary: #67ff0b;
 }
 
 .btn__back-container {
-    position: absolute;
-    width: 3%;
-    height: 5%;
-    left: 34%;
-    top: 2%;
-    transition: transform 1s;
+    @include media(">=phone") {
+            position: absolute;
+            width: 42px;
+            left: 50px;
+            top: 450px;
+            transition: transform 1s;
+    }
+
+    @include media(">=tablet") {
+        position: absolute;
+        width: 3%;
+        height: 5%;
+        left: 34%;
+        top: 2%;
+        transition: transform 1s;
+    }
 }
 
 .btn__back {
@@ -23,6 +35,7 @@ $primary: #67ff0b;
     left: 10%;
     cursor: pointer;
     transition: transform 0.2s;
+    font-size: 48px;
 }
 
 .btn__back:hover {

@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
+import axios from "axios";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/index.scss";
@@ -12,12 +13,13 @@ const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
 const ProductList = dynamic(() => import("../components/ProductList"));
+const CreateForm = dynamic(() => import("../components/CreateForm"));
 const InfoBox = dynamic(() => import("../components/InfoBox"));
 
-const meleeFetcher = (...args) => fetch(...args).then((res) => res.json());
+const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 export async function getStaticProps() {
-    const meleeweapons = await meleeFetcher(
+    const meleeweapons = await fetcher(
         `${process.env.MY_URL}/api/meleeweapons`
     );
     return { props: { meleeweapons } };
@@ -57,10 +59,12 @@ export default function meleeweaponlist(props) {
         setCurrentInfo(inf);
     };
 
+    // Data Creating 
+    
     // Data fetching
 
     //SWR
-    const { data, error } = useSWR("/api/meleeweapons", meleeFetcher, {
+    const { data, error } = useSWR("/api/meleeweapons", fetcher, {
         initialData: props.meleeweapons,
     });
 
@@ -90,6 +94,7 @@ export default function meleeweaponlist(props) {
                     onClick={goBack}
                 />
             </div>
+            <CreateForm />
             <InfoBox
                 currentStats={currentStats}
                 hasEffect={hasEffect}
