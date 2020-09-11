@@ -1,11 +1,22 @@
 import dynamic from "next/dynamic";
+import axios from "axios";
 import { useState, useRef } from "react";
 import "../styles/product-list.scss";
+import { useEffect } from "react";
 
 export default function Product(props) {
     const [hovering, setHovering] = useState(false);
     const nameRef = useRef(null);
 
+    let onClickDelete = () => {
+        console.log(props.product);
+
+        axios.delete(`/api/meleeweapons/${props.product.id}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+    }
 
     let hoverHandler =() => {
         let stats = {
@@ -30,8 +41,9 @@ export default function Product(props) {
     const hide = hovering ? " " : "hide";
     const showColor = hovering ? "quantity-container-color" : "  ";
 
+    let i = props.index+1;
     return (
-        <div key={props.product.id} className={"prod" + props.product.id + " product-container"}>
+        <div key={props.product.id} className={"prod" + i + " product-container"} >
             <div
                 onMouseEnter={hoverHandler}
                 onTouchStart={hoverHandler}
@@ -39,7 +51,9 @@ export default function Product(props) {
                 onTouchEnd={hoverHandlerLeave}
                 className={"product product--styles"}
             >
-                <div className={hide + " product__innerSq1"}></div>
+                <div className={hide + " product__innerSq1"}>
+                    <button onClick={onClickDelete} className={hide + " delete-btn delete-btn--styles"}>Delete</button>
+                </div>
                 <div className={hide + " product__innerSq2"}></div>
                 <div className="flex product-txt-container product-txt-container--styles">
                     <div className="left-cell">

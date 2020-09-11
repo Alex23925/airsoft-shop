@@ -6,7 +6,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     try {
         const { meleeweapon: meleeweaponData } = req.body;
-
         const newmeleeweapon = await prisma.meleeWeapon.create({
             data: {
                 img: meleeweaponData.img,

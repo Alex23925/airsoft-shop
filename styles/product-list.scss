@@ -14,6 +14,9 @@ $primary: #67ff0b;
 $defTop: 15%;
 $defLeft: 5%;
 
+$posTop: 0%, 15%, 30%, 45%, 60%, 75%, 90%, 105%;
+$posLeft: 6%, 2%, -3%, -7%, -11%, -15%, 19%, -23%;
+
 .product-list {
     @include media(">=phone") {
         position: absolute;
@@ -25,6 +28,9 @@ $defLeft: 5%;
 
     @include media(">=tablet") {
         position: absolute;
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(8, auto);
         width: 57.1%;
         height: 50%;
         left: 27.3%;
@@ -86,6 +92,7 @@ $defLeft: 5%;
         cursor: pointer;
     }
 }
+
 
 .product--styles {
     background-color: $primary;
@@ -330,6 +337,22 @@ button:focus {
     @include media(">=desktop") {
         font-size: 2.1vw;
     }
+}
+
+.delete-btn {
+    position: absolute;
+    left: -2%;
+    top: -4%;
+    cursor: pointer;
+}
+
+.delete-btn--styles {
+    border: none;
+    font-family: $font2;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    
 }
 
 .prod2 {

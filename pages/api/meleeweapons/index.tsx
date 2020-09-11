@@ -12,7 +12,7 @@ export default async function(req: NextApiRequest, res: NextApiResponse) {
 
     } catch(e) {
         res.status(500);
-        res.json({error: "Unable to fetch sightings"});
+        res.json({error: "Unable to fetch melee weapons"});
     } finally {
         await prisma.$disconnect();    
     }

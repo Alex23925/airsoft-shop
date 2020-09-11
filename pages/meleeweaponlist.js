@@ -18,14 +18,14 @@ const InfoBox = dynamic(() => import("../components/InfoBox"));
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-export async function getStaticProps() {
-    const meleeweapons = await fetcher(
-        `${process.env.MY_URL}/api/meleeweapons`
-    );
-    return { props: { meleeweapons } };
-}
-
 export default function meleeweaponlist(props) {
+    const [mount, setMount] = useState(false);
+    useEffect(() => {
+        setMount(true);
+        if (mount) {
+            console.log(mount);
+        }
+    }, []);
     const [currentStats, setCurrentStats] = useState({
         attack: "000",
         accuracy: "000",
@@ -59,14 +59,10 @@ export default function meleeweaponlist(props) {
         setCurrentInfo(inf);
     };
 
-    // Data Creating 
-    
     // Data fetching
 
     //SWR
-    const { data, error } = useSWR("/api/meleeweapons", fetcher, {
-        initialData: props.meleeweapons,
-    });
+    const { data, error } = useSWR("/api/meleeweapons", fetcher);
 
     if (error) return <div>failed to load</div>;
     if (!data)
