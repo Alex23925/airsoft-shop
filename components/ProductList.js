@@ -1,11 +1,12 @@
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState,  useEffect } from "react";
 
 const Product = dynamic(() => import("./Product"));
 
-export default function ProductList(props) {
-    
-    console.log(props.minv);
+export default function ProductList(props) {    
+    useEffect(() => {
+
+    });
 
     return (
         <div className="product-list">

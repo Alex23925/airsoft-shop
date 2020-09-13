@@ -1,20 +1,32 @@
 import {
     PrismaClient
 } from '@prisma/client'
+import {
+    resolve
+} from 'path'
 
 const prisma = new PrismaClient()
 
-export default async function handle(req, res) {
-    const postId = req.query.id
+export const config = {
+    api: {
+        externalResolver: true,
+    },
+}
 
-    if (req.method === 'GET') {
-        handleGET(postId, res)
-    } else if (req.method === 'DELETE') {
-        handleDELETE(postId, res)
-    } else {
-        throw new Error(
-            `The HTTP ${req.method} method is not supported at this route.`
-        )
+export default async function handle(req, res) {
+    try {
+        const postId = req.query.id
+
+        if (req.method === 'GET') {
+            handleGET(postId, res)
+        } else if (req.method === 'DELETE') {
+            handleDELETE(postId, res)
+        }
+    } catch (e) {
+        res.status(500);
+        res.json({
+            error: "Sorry unable to complete the request",
+        });
     }
 }
 
@@ -38,5 +50,6 @@ async function handleDELETE(postId, res) {
             id: Number(postId)
         },
     })
-    res.json(mweapon)
+    res.json(mweapon);
+
 }

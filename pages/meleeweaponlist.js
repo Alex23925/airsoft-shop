@@ -16,16 +16,7 @@ const ProductList = dynamic(() => import("../components/ProductList"));
 const CreateForm = dynamic(() => import("../components/CreateForm"));
 const InfoBox = dynamic(() => import("../components/InfoBox"));
 
-const fetcher = (url) => axios.get(url).then((res) => res.data);
-
 export default function meleeweaponlist(props) {
-    const [mount, setMount] = useState(false);
-    useEffect(() => {
-        setMount(true);
-        if (mount) {
-            console.log(mount);
-        }
-    }, []);
     const [currentStats, setCurrentStats] = useState({
         attack: "000",
         accuracy: "000",
@@ -34,6 +25,7 @@ export default function meleeweaponlist(props) {
     const [currentInfo, setCurrentInfo] = useState(" ");
     const [hasEffect, setHasEffect] = useState(false);
     const [isBackHovering, setIsBackHovering] = useState(false);
+
     //functions
     let goBack = () => window.history.back();
 
@@ -62,7 +54,7 @@ export default function meleeweaponlist(props) {
     // Data fetching
 
     //SWR
-    const { data, error } = useSWR("/api/meleeweapons", fetcher);
+    const { data, error } = useSWR("/api/meleeweapons");
 
     if (error) return <div>failed to load</div>;
     if (!data)

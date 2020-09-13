@@ -6,8 +6,15 @@ import "../styles/sign.scss";
 
 function MyApp({ Component, pageProps }) {
     return (
-        <Component {...pageProps} />
-    
+        <SWRConfig
+            value={{
+                refreshInterval: 2000,
+                fetcher: (resource, init) =>
+                    fetch(resource, init).then((res) => res.json()),
+            }}
+        >
+            <Component {...pageProps} />
+        </SWRConfig>
     );
 }
 

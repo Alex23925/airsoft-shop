@@ -1,7 +1,6 @@
-import useSWR from "swr";
-
 import "../styles/create-form.scss";
 import axios from "axios";
+import useSWR, { mutate, trigger } from "swr";
 import { useState } from "react";
 
 export default function CreateForm(props) {
@@ -17,6 +16,8 @@ export default function CreateForm(props) {
         info: "",
     });
 
+    const { data, error } = useSWR("/api/meleeweapons");
+
     let handleChange = (e) => {
         let target = e.target;
         let value = target.value;
@@ -29,20 +30,21 @@ export default function CreateForm(props) {
         });
     };
 
-    let handleSubmit = (e) => {
+    let handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(itemData);
-        axios
+        mutate("/api/meleeweapons", { ...data, meleeweapon: itemData }, false);
+        await axios
             .post("/api/meleeweapons/create", { meleeweapon: itemData })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
             });
+        mutate("/api/meleeweapons");
     };
 
     return (
-        <section className="form-container">
+        <section className="form-container form-container--styles">
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
@@ -116,7 +118,7 @@ export default function CreateForm(props) {
                         onChange={handleChange}
                     />
                 </label>
-                <button type="submit">Add</button>
+                <button className="sub-btn sub-btn--styles" type="submit">Add</button>
             </form>
         </section>
     );
