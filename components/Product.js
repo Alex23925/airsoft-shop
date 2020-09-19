@@ -50,7 +50,15 @@ export default function Product(props) {
     let hoverHandlerLeave = () => setHovering(false);
 
     const image = props.product.img;
-    let prodImg = image === "melee" ? "Knives.png" : "";
+    let prodImg = "";
+    switch (image) {
+        case "melee":
+            prodImg = "Knives.png";
+            break;
+        case "range":
+            prodImg = "Pistols.png";
+            break;
+    }
     const hide = hovering ? " " : "hide";
     const showColor = hovering ? "quantity-container-color" : "  ";
 

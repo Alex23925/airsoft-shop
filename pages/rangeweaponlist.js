@@ -20,7 +20,7 @@ const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
 const ProductList = dynamic(() => import("../components/ProductList"));
-const CreateForm = dynamic(() => import("../components/CreateForm"));
+const CreateRangeForm = dynamic(() => import("../components/CreateRangeForm"));
 const InfoBox = dynamic(() => import("../components/InfoBox"));
 
 export default function rangeweaponlist() {
@@ -89,7 +89,7 @@ export default function rangeweaponlist() {
                     onClick={goBack}
                 />
             </div>
-            <CreateForm />
+            <CreateRangeForm />
             <InfoBox
                 currentStats={currentStats}
                 hasEffect={hasEffect}
