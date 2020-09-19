@@ -58,6 +58,12 @@ export default function Product(props) {
         case "range":
             prodImg = "Pistols.png";
             break;
+        case "protector":
+            prodImg = "Protectors.png";
+            break;
+        case "accessory":
+            prodImg = "Accessories.png";
+            break;
     }
     const hide = hovering ? " " : "hide";
     const showColor = hovering ? "quantity-container-color" : "  ";
