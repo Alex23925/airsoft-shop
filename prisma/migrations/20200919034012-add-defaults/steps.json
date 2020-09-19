@@ -1,0 +1,55 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MeleeWeapon",
+          "field": "img"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MeleeWeapon",
+          "field": "img"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "\"melee\""
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RangeWeapon",
+          "field": "img"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RangeWeapon",
+          "field": "img"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "\"range\""
+    }
+  ]
+}

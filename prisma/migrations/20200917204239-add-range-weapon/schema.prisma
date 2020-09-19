@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -13,7 +13,7 @@ generator client {
 model RangeWeapon {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  img        String @default("range")
+  img        String
   name       String
   price      String
   quantity   String
@@ -27,7 +27,7 @@ model RangeWeapon {
 model MeleeWeapon {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  img        String @default("melee")
+  img        String
   name       String
   price      String
   quantity   String
