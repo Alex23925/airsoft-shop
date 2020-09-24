@@ -71,6 +71,7 @@ export default function meleeweaponlist(props) {
             <BackgroundFilled />
             <ProductList
                 minv={data.meleeweapons}
+                productsURL={"meleeweapons"}
                 setHoverStats={setHoverStats}
                 setHoverEffect={setHoverEffect}
                 setHoverInfo={setHoverInfo}

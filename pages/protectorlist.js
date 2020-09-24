@@ -79,6 +79,7 @@ export default function protectorlist() {
             <BackgroundFilled />
             <ProductList
                 minv={data.protectors}
+                productsURL={"protectors"}
                 setHoverStats={setHoverStats}
                 setHoverEffect={setHoverEffect}
                 setHoverInfo={setHoverInfo}

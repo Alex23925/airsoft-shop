@@ -13,6 +13,7 @@ export default function ProductList(props) {
             {props.minv.map((item) => (
                 <Product
                     product={item}
+                    productsURL={props.productsURL}
                     index={props.minv.indexOf(item)}
                     setHoverStats={props.setHoverStats}
                     setHoverEffect={props.setHoverEffect}

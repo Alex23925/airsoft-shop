@@ -7,12 +7,14 @@ export default function Product(props) {
     const [hovering, setHovering] = useState(false);
     const [deleted, setDeleted] = useState("");
     const nameRef = useRef(null);
-    const { data } = useSWR("/api/meleeweapons");
+    const {
+        data
+    } = useSWR(`/api/${props.productsURL}`);
 
     let onClickDelete = async () => {
         const weapons = data.meleeweapons;
-        const deleteUrl = `/api/meleeweapons/${props.product.id}`;
-        const url = "/api/meleeweapons/";
+        const deleteUrl = `/api/${props.productsURL}/${props.product.id}`;
+        const url = `/api/${props.productsURL}/`;
 
         //temporary solution, display none once clicked and then seconds later its  deleted
         setDeleted("deleted");

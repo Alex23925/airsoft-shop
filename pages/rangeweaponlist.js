@@ -78,6 +78,7 @@ export default function rangeweaponlist() {
             <BackgroundFilled />
             <ProductList
                 minv={data.rangeweapons}
+                productsURL={"rangeweapons"}
                 setHoverStats={setHoverStats}
                 setHoverEffect={setHoverEffect}
                 setHoverInfo={setHoverInfo}
