@@ -15,6 +15,10 @@ $radius: 25px;
 $primary: #67ff0b;
 @import "./breakpoints.scss";
 
+.hide {
+    display:none;
+}
+
 .infoBox-container {
     @include media(">=phone") {
         position: absolute;

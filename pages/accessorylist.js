@@ -20,14 +20,84 @@ const BackgroundFilled = dynamic(() =>
     import("../components/BackgroundFilled")
 );
 const ProductList = dynamic(() => import("../components/ProductList"));
-const CreateForm = dynamic(() => import("../components/CreateForm"));
+const CreateAccessoryForm = dynamic(() => import("../components/CreateAccessoryForm"));
 const InfoBox = dynamic(() => import("../components/InfoBox"));
 
 
 export default function AccessoryList(props) {
-    return(
-        <div className="accessory-list-container">
-            <p>You are on the Accessory List Page </p>
-        </div>
-    )
+    const [currentStats, setCurrentStats] = useState({
+        defense: "000",
+        evasion: "000",
+    });
+    const [currentEffect, setCurrentEffect] = useState(" ");
+    const [currentInfo, setCurrentInfo] = useState(" ");
+    const [hasEffect, setHasEffect] = useState(false);
+    const [isBackHovering, setIsBackHovering] = useState(false);
+
+    //functions
+    let goBack = () => window.history.back();
+
+    let setHoverStats = (stats) => {
+        let st = stats;
+        setCurrentStats({
+            defense: st.defense,
+            evasion: st.evasion,
+        });
+    };
+
+    let setHoverEffect = (effect) => {
+        if (effect !== "none") {
+            setHasEffect(true);
+        } else {
+            setHasEffect(false);
+        }
+        setCurrentEffect(effect);
+    };
+
+    let setHoverInfo = (info) => {
+        let inf = info;
+        setCurrentInfo(inf);
+    };
+
+    // Data fetching
+
+    //SWR
+    const { data, error } = useSWR("/api/accessories");
+
+    if (error) return <div>failed to load</div>;
+    if (!data)
+        return (
+            <img
+                src="/personaloading.jpg"
+                alt="loading image"
+                className="loading-img"
+            />
+        );
+
+    return (
+        <Layout>
+            <BackgroundFilled />
+            <ProductList
+                minv={data.accessories}
+                productsURL={"accessories"}
+                setHoverStats={setHoverStats}
+                setHoverEffect={setHoverEffect}
+                setHoverInfo={setHoverInfo}
+            />
+            <div className={"btn__back-container"}>
+                <FontAwesomeIcon
+                    className="fa-3x btn__back"
+                    icon={faArrowAltCircleLeft}
+                    onClick={goBack}
+                />
+            </div>
+            <CreateAccessoryForm />
+            <InfoBox
+                currentStats={currentStats}
+                hasEffect={hasEffect}
+                currentEffect={currentEffect}
+                currentInfo={currentInfo}
+            />
+        </Layout>
+    );
 }

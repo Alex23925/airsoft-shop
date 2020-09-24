@@ -4,6 +4,8 @@ import "../styles/info-box.scss";
 const EffectDisplay = dynamic(() => import("./effectLogicDisplay"));
 
 export default function InfoBox(props) {
+    let displayStats = "";
+
     let effect = props.currentEffect;
     let hasEffect = props.hasEffect;
     let currentLeftStat =
@@ -20,12 +22,16 @@ export default function InfoBox(props) {
     let RightStatTitle =
         props.currentStats.accuracy === undefined ? "Evasion" : "Accuracy";
 
+    if (props.currentStats.attack === undefined && props.currentStats.defense === undefined){
+        displayStats="hide"
+    }
+    
     return (
         <div className="infoBox-container">
             <div className="infoBox-outer">
                 <div className="infoBox-inner"></div>
             </div>
-            <div className="infoAttack-container">
+            <div className={displayStats + " infoAttack-container"}>
                 <div className="infoBox-attack-bg"></div>
                 <div className="infoBox-attack"></div>
                 <div className="attack-txt-container">
@@ -36,7 +42,7 @@ export default function InfoBox(props) {
                     </div>
                 </div>
             </div>
-            <div className="infoAccuracy-container">
+            <div className={displayStats + " infoAccuracy-container"}>
                 <div className="infoBox-accuracy-bg"></div>
                 <div className="infoBox-accuracy"></div>
                 <div className="accuracy-txt-container">
