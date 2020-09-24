@@ -3,7 +3,7 @@ import axios from "axios";
 import useSWR, { mutate, trigger } from "swr";
 import { useState } from "react";
 
-export default function CreateForm(props) {
+export default function CreateProtectorForm(props) {
     const [itemData, setItemData] = useState({
         img: "protector",
         name: "",
@@ -11,7 +11,7 @@ export default function CreateForm(props) {
         quantity: "",
         defense: "",
         evasion: "",
-        effect: "",
+        multiplier: "",
         info: "",
     });
 
@@ -34,7 +34,9 @@ export default function CreateForm(props) {
 
         mutate("/api/protectors", { ...data, protector: itemData }, false);
         await axios
-            .post("/api/protectors/create", { protector: itemData })
+            .post("/api/protectors/create", {
+                protector: itemData
+            })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -73,7 +75,7 @@ export default function CreateForm(props) {
                     />
                 </label>
                 <label>
-                    Attack:
+                    Defense:
                     <input
                         type="text"
                         name="defense"
@@ -82,7 +84,7 @@ export default function CreateForm(props) {
                     />
                 </label>
                 <label>
-                    Accuracy:
+                    Evasion:
                     <input
                         type="text"
                         name="evasion"
@@ -91,11 +93,11 @@ export default function CreateForm(props) {
                     />
                 </label>
                 <label>
-                    Effect:
+                    Multiplier:
                     <input
                         type="text"
-                        name="effect"
-                        value={itemData.effect}
+                        name="multiplier"
+                        value={itemData.multiplier}
                         onChange={handleChange}
                     />
                 </label>

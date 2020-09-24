@@ -12,9 +12,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
                 name: protectorData.name,
                 price: protectorData.price,
                 quantity: protectorData.quantity,
-                attack: protectorData.attack,
-                accuracy: protectorData.accuracy,
-                effect: protectorData.effect,
+                defense: protectorData.defense,
+                evasion: protectorData.evasion,
                 multiplier: protectorData.multiplier,
                 info: protectorData.info,
             },
@@ -27,7 +26,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     } catch (e) {
         res.status(500);
         res.json({
-            error: "Sorry unable to save melee weapon to database",
+            error: "Sorry unable to save protector to database",
         });
     } finally {
         await prisma.$disconnect();

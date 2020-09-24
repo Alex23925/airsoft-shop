@@ -10,7 +10,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         res.json({ protectors });
     } catch (e) {
         res.status(500);
-        res.json({ error: "Unable to fetch melee weapons" });
+        res.json({ error: "Unable to fetch protector" });
     } finally {
         await prisma.$disconnect();
     }
