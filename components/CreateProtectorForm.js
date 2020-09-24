@@ -11,7 +11,7 @@ export default function CreateProtectorForm(props) {
         quantity: "",
         defense: "",
         evasion: "",
-        multiplier: "",
+        effect: "",
         info: "",
     });
 
@@ -93,11 +93,11 @@ export default function CreateProtectorForm(props) {
                     />
                 </label>
                 <label>
-                    Multiplier:
+                    Effect:
                     <input
                         type="text"
-                        name="multiplier"
-                        value={itemData.multiplier}
+                        name="effect"
+                        value={itemData.effect}
                         onChange={handleChange}
                     />
                 </label>

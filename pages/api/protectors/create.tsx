@@ -14,7 +14,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
                 quantity: protectorData.quantity,
                 defense: protectorData.defense,
                 evasion: protectorData.evasion,
-                multiplier: protectorData.multiplier,
+                effect: protectorData.effect,
                 info: protectorData.info,
             },
         });

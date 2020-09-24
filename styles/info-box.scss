@@ -132,7 +132,7 @@ $primary: #67ff0b;
     @include media(">=phone") {
         font-size: 14px;
         font-family: $font;
-        letter-spacing: -0.4vw;
+        letter-spacing: -0.0vw;
         font-weight: 800;
         color: white;
         text-shadow: 1px 1px 1px black;
@@ -152,7 +152,7 @@ $primary: #67ff0b;
     @include media(">=desktop") {
         font-size: 1.8vw;
         font-family: $font;
-        letter-spacing: -0.5vw;
+        letter-spacing: -0.2vw;
         font-weight: 800;
         color: white;
         text-shadow: 5px 5px 1px black;
@@ -276,7 +276,7 @@ $primary: #67ff0b;
     @include media(">=desktop") {
         font-size: 1.8vw;
         font-family: $font;
-        letter-spacing: -0.5vw;
+        letter-spacing: -0.2vw;
         font-weight: 800;
         color: white;
         text-shadow: 5px 5px 1px black;

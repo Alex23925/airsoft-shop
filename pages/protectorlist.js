@@ -26,8 +26,8 @@ const InfoBox = dynamic(() => import("../components/InfoBox"));
 
 export default function protectorlist() {
     const [currentStats, setCurrentStats] = useState({
-        attack: "000",
-        accuracy: "000",
+        defense: "000",
+        evasion: "000",
     });
     const [currentEffect, setCurrentEffect] = useState(" ");
     const [currentInfo, setCurrentInfo] = useState(" ");
@@ -40,8 +40,8 @@ export default function protectorlist() {
     let setHoverStats = (stats) => {
         let st = stats;
         setCurrentStats({
-            attack: st.attack,
-            accuracy: st.accuracy,
+            defense: st.defense,
+            evasion: st.evasion,
         });
     };
 

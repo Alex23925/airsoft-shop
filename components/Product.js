@@ -15,29 +15,23 @@ export default function Product(props) {
         const weapons = data.meleeweapons;
         const deleteUrl = `/api/${props.productsURL}/${props.product.id}`;
         const url = `/api/${props.productsURL}/`;
-
-        //temporary solution, display none once clicked and then seconds later its  deleted
         setDeleted("deleted");
-        // mutate(
-        //     url,
-        //     (currentData) => ({
-        //         ...currentData,
-        //         items: [
-        //             ...currentData.items.slice(0, index),
-        //             index < weapons.length - 1 &&
-        //                 weapons.slice(index + 1),
-        //         ],
-        //     }),
-        //     false
-        // );
         await axios.delete(deleteUrl);
     };
 
     let hoverHandler = () => {
-        let stats = {
-            attack: props.product.attack,
-            accuracy: props.product.accuracy,
-        };
+        let stats;
+        if(props.product.attack === undefined){
+            stats = {
+                defense: props.product.defense,
+                evasion: props.product.evasion,
+            };
+        } else {
+            stats = {
+                attack: props.product.attack,
+                accuracy: props.product.accuracy,
+            };
+        }
         props.setHoverStats(stats);
 
         let effect = props.product.effect;
